@@ -8,20 +8,20 @@
         /* CSS Reset and Base Styles */
         :root {
             /* Color Palette - 5 Core Colors */
-            --color-primary: #3498db;     /* Vibrant Blue - Main Brand Color */
-            --color-secondary: #2ecc71;   /* Emerald Green - Complementary Action Color */
-            --color-accent: #e74c3c;      /* Passionate Red - Highlight / Warning Color */
-            --color-neutral: #34495e;     /* Deep Slate Gray - Neutral Text and Background */
-            --color-highlight: #f1c40f;   /* Bright Yellow - Accent / Attention Color */
-            
-            /* Derived Colors for Flexibility */
-            --color-background: color-mix(in srgb, var(--color-neutral) 10%, white);
-            --color-text-dark: var(--color-neutral);
-            --color-text-light: white;
+            --color-primary: #0D0A0B;     /* Near-Black - Primary */
+            --color-secondary: #454955;   /* Charcoal Gray - Secondary */
+            --color-accent: #72B01D;      /* Light Green - Accent */
+            --color-neutral: #F3EFF5;     /* Soft Off-White - Neutral/Background */
+            --color-highlight: #3F7D20;   /* Deep Green - Highlight */
 
-            /* Typography */
-            --font-primary: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
-            --font-secondary: 'Roboto Mono', monospace;
+            /* Colors for Flexibility */
+            --color-background: var(--color-neutral);
+            --color-text-dark: var(--color-primary);
+            --color-text-light: var(--color-neutral);
+
+            /* Typography (UPDATED) */
+            --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-secondary: 'Source Sans 3', -apple-system, BlinkMacSystemFont, sans-serif;
 
             /* Spacing System */
             --spacing-xs: 0.25rem;
@@ -43,7 +43,7 @@
         }
 
         body {
-            font-family: var(--font-primary);
+            font-family: var(--font-secondary);
             line-height: 1.6;
             background-color: var(--color-background);
             color: var(--color-text-dark);
@@ -57,6 +57,7 @@
 
         /* Typography Styles */
         h1 {
+            font-family: var(--font-primary);
             font-size: 3rem;
             font-weight: 700;
             margin-bottom: var(--spacing-md);
@@ -64,6 +65,7 @@
         }
 
         h2 {
+            font-family: var(--font-primary);
             font-size: 2rem;
             font-weight: 600;
             margin-bottom: var(--spacing-md);
@@ -71,10 +73,11 @@
         }
 
         h3 {
+            font-family: var(--font-primary);
             font-size: 1.5rem;
             font-weight: 500;
             margin-bottom: var(--spacing-sm);
-            color: var(--color-accent);
+            color: var(--color-highlight);
         }
 
         .body-text {
@@ -119,7 +122,7 @@
 
         .button:hover {
             background-color: color-mix(in srgb, var(--color-primary) 80%, black);
-            border-color: var(--color-secondary);
+            border-color: var(--color-accent);
             transform: scale(1.05);
         }
 
@@ -128,20 +131,40 @@
             background-color: var(--color-secondary);
         }
 
+        /* indicators (addition for accessibility) */
+        .button:focus-visible,
+        .link:focus-visible,
+        input:focus-visible {
+            outline: 3px solid var(--color-highlight);
+            outline-offset: 3px;
+        }
+
         .link {
-            color: var(--color-secondary);
-            text-decoration: none;
+            color: var(--color-highlight);
+            text-decoration: underline;
+            text-decoration-thickness: 2px;
+            text-underline-offset: 3px;
             transition: color 0.3s ease, text-decoration-color 0.3s;
         }
 
         .link:hover {
             color: var(--color-accent);
-            text-decoration: underline;
-            text-decoration-color: var(--color-highlight);
+            text-decoration-color: var(--color-accent);
         }
 
         .link:visited {
-            color: var(--color-neutral);
+            color: var(--color-secondary);
+        }
+
+        /* Basic form input styling */
+        input {
+            margin-top: var(--spacing-md);
+            padding: var(--spacing-sm);
+            border-radius: var(--radius-sm);
+            border: 2px solid var(--color-secondary);
+            background: white;
+            color: var(--color-text-dark);
+            font-family: var(--font-secondary);
         }
 
         /* Spacing Demonstration */
@@ -153,11 +176,15 @@
         }
 
         .spacing-block {
-            background-color: var(--color-primary);
+            background-color: var(--color-highlight);
             height: 50px;
         }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Google Fonts  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
@@ -168,39 +195,39 @@
             <div class="color-palette">
                 <div class="color-swatch" style="background-color: var(--color-primary); color: var(--color-text-light);">
                     <strong>Primary Color</strong>
-                    <p>#3498db</p>
-                    <small>Contrast Ratio: 4.6:1</small>
+                    <p>#0D0A0B</p>
+                    <small>Contrast Ratio: 17.34:1</small>
                 </div>
                 <div class="color-swatch" style="background-color: var(--color-secondary); color: var(--color-text-light);">
                     <strong>Secondary Color</strong>
-                    <p>#2ecc71</p>
-                    <small>Contrast Ratio: 4.8:1</small>
+                    <p>#454955</p>
+                    <small>Contrast Ratio: 7.91:1</small>
                 </div>
-                <div class="color-swatch" style="background-color: var(--color-accent); color: var(--color-text-light);">
+                <div class="color-swatch" style="background-color: var(--color-accent); color: var(--color-text-dark);">
                     <strong>Accent Color</strong>
-                    <p>#e74c3c</p>
-                    <small>Contrast Ratio: 4.5:1</small>
+                    <p>#72B01D</p>
+                    <small>Contrast Ratio: 7.46:1</small>
                 </div>
-                <div class="color-swatch" style="background-color: var(--color-neutral); color: var(--color-text-light);">
+                <div class="color-swatch" style="background-color: var(--color-neutral); color: var(--color-text-dark); border: 2px solid var(--color-secondary);">
                     <strong>Neutral Color</strong>
-                    <p>#34495e</p>
-                    <small>Contrast Ratio: 4.7:1</small>
+                    <p>#F3EFF5</p>
+                    <small>Contrast Ratio: 17.34:1</small>
                 </div>
-                <div class="color-swatch" style="background-color: var(--color-highlight); color: var(--color-text-dark);">
+                <div class="color-swatch" style="background-color: var(--color-highlight); color: #FFFFFF;">
                     <strong>Highlight Color</strong>
-                    <p>#f1c40f</p>
-                    <small>Contrast Ratio: 4.9:1</small>
+                    <p>#3F7D20</p>
+                    <small>Contrast Ratio: 5.04:1</small>
                 </div>
             </div>
         </section>
 
         <section>
             <h2>Typography</h2>
-            <h1>Heading 1 - Space Grotesk</h1>
-            <h2>Heading 2 - Space Grotesk</h2>
-            <h3>Heading 3 - Space Grotesk</h3>
-            <p class="body-text">Body Text - Using Space Grotesk with a comfortable line height and readable size.</p>
-            <p class="small-text">Small Text - Subtle and understated, perfect for annotations and footnotes.</p>
+            <h1>Heading 1 - Inter</h1>
+            <h2>Heading 2 - Inter</h2>
+            <h3>Heading 3 - Inter</h3>
+            <p class="body-text">Body Text - Using Source Sans 3 with a comfortable line height and readable size.</p>
+            <p class="small-text">Small Text - Source Sans 3 for captions/notes.</p>
         </section>
 
         <section>
@@ -219,7 +246,9 @@
             <h2>Interactive Components</h2>
             <a href="#" class="button">Primary Button</a>
             <a href="#" class="link">Standard Link</a>
-            <a href="#" class="link" style="color: purple;">Visited Link</a>
+            <a href="https://example.com" class="link">Visited Link (click me)</a>
+            <br>
+            <input type="text" placeholder="Basic input">
         </section>
     </div>
 </body>
