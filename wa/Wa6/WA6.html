@@ -7,14 +7,14 @@
     <style>
         /* CSS Reset and Base Styles */
         :root {
-            /* Color Palette - 5 Core Colors */
+            /* Color Palette - 5 Core Colors (YOUR PALETTE) */
             --color-primary: #0D0A0B;     /* Near-Black - Primary */
             --color-secondary: #454955;   /* Charcoal Gray - Secondary */
             --color-accent: #72B01D;      /* Light Green - Accent */
             --color-neutral: #F3EFF5;     /* Soft Off-White - Neutral/Background */
             --color-highlight: #3F7D20;   /* Deep Green - Highlight */
 
-            /* Colors for Flexibility */
+            /* Derived Colors for Flexibility */
             --color-background: var(--color-neutral);
             --color-text-dark: var(--color-primary);
             --color-text-light: var(--color-neutral);
@@ -131,7 +131,7 @@
             background-color: var(--color-secondary);
         }
 
-        /* indicators (addition for accessibility) */
+        /* Focus indicators (minimal addition for accessibility) */
         .button:focus-visible,
         .link:focus-visible,
         input:focus-visible {
@@ -156,7 +156,7 @@
             color: var(--color-secondary);
         }
 
-        /* Basic form input styling */
+        /* Basic form input styling (minimal addition for assignment) */
         input {
             margin-top: var(--spacing-md);
             padding: var(--spacing-sm);
@@ -181,7 +181,7 @@
         }
     </style>
 
-    <!-- Google Fonts  -->
+    <!-- Google Fonts (UPDATED) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
@@ -244,6 +244,10 @@
 
         <section>
             <h2>Interactive Components</h2>
+
+            <!-- Button linking to reflection PDF -->
+            <a href="Assets6/WA6 reflection.pdf" class="button" target="_blank" rel="noopener">Open Reflection PDF</a>
+
             <a href="#" class="button">Primary Button</a>
             <a href="#" class="link">Standard Link</a>
             <a href="https://example.com" class="link">Visited Link (click me)</a>
