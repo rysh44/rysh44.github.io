@@ -16,9 +16,24 @@ article {
   height: 297mm;
   margin: 20px auto;
   position: relative;
-  border-bottom: 1mm solid green;
+
   border-top: 1mm solid green;
-  background:url(Assets/TOP.png) no-repeat top left, url(Assets/BOTTOM.png) no-repeat bottom left,linear-gradient(to bottom, rgba(0,0,0,.2),rgba(0,0,0,0),25%);
+  border-bottom: 1mm solid green;
+
+  background:
+    /* Gradient overlay (dark top & bottom, transparent middle) */
+    linear-gradient(
+      to bottom,
+      rgba(0,0,0,.2),
+      rgba(0,0,0,0) 25%,
+      rgba(0,0,0,0) 75%,
+      rgba(0,0,0,.2)
+    ),
+    /* Top image */
+    url(Assets/TOP.png) no-repeat top left,
+    /* Bottom image */
+    url(Assets/bottom-image.png) no-repeat bottom left;
+
   background-color: white;
 }
 
@@ -34,12 +49,17 @@ h1 {
   left: 20mm;
   width: 128px;
   height: 128px;
+
   font-size: 20px;
   letter-spacing: 1px;
   text-align: center;
   padding: 44px 0;
   color: white;
   text-shadow: 1px 1px 1px black;
-  background:no-repeat url(Assets/logo.png);
-  filter:fixed drop-shadow(3px 3px 3px black);
+
+  /* Logo */
+  background: url(Assets/logo.png) no-repeat;
+
+  /* Subtle drop shadow */
+  filter: drop-shadow(3px 3px 3px rgba(0,0,0,0.4));
 }
