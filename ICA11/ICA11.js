@@ -1,4 +1,4 @@
-// Complete variable definitions and random functions
+// Complete variable definitions and random function
 
 const customName = document.getElementById("custom-name");
 const generateBtn = document.querySelector(".generate");
@@ -9,43 +9,41 @@ function randomValueFromArray(array) {
   return array[random];
 }
 
-// Raw text strings
-
-// Willy the Goblin
-// Big Daddy
-// Father Christmas
-
-// the soup kitchen
-// Disneyland
-// the White House
-
-// spontaneously combusted
-// melted into a puddle on the sidewalk
-// turned into a slug and slithered away
-
-// Partial return random string function
+const characters = ["Zara the Explorer", "Captain Noodle", "Dr. Pixel"];
+const places = ["a hidden cave", "an abandoned arcade", "a floating island"];
+const events = [
+  "discovered a glowing portal",
+  "triggered a mysterious alarm",
+  "accidentally unleashed a swarm of tiny robots",
+];
 
 function returnRandomStoryString() {
-  // It was 94 Fahrenheit outside, so :insertx: went for a walk. When they got to :inserty:, they stared in horror for a few moments, then :insertz:. Bob saw the whole thing, but was not surprised — :insertx: weighs 300 pounds, and it was a hot day.
+  const randomCharacter = randomValueFromArray(characters);
+  const randomPlace = randomValueFromArray(places);
+  const randomEvent = randomValueFromArray(events);
+
+  let storyText = `It was 86 Fahrenheit outside, so ${randomCharacter} set out on an adventure. When they arrived at ${randomPlace}, they paused for a moment, then ${randomEvent}. Alex witnessed everything, but wasn’t shocked — ${randomCharacter} carries 220 pounds of gear, and the heat made things unpredictable.`;
 
   return storyText;
 }
 
-// Event listener and partial generate function definition
-
 generateBtn.addEventListener("click", generateStory);
 
 function generateStory() {
+  let newStory = returnRandomStoryString();
+
   if (customName.value !== "") {
     const name = customName.value;
+    newStory = newStory.replace("Alex", name);
   }
 
   if (document.getElementById("uk").checked) {
-    const weight = Math.round(300);
-    const temperature = Math.round(94);
+    const weight = `${Math.round(220 / 14)} stone`;
+    const temperature = `${Math.round((86 - 32) * (5 / 9))} Celsius`;
+    newStory = newStory.replace("220 pounds", weight);
+    newStory = newStory.replace("86 Fahrenheit", temperature);
   }
 
-  // TODO: replace "" with the correct expression
-  story.textContent = "";
+  story.textContent = newStory;
   story.style.visibility = "visible";
 }

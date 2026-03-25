@@ -1,0 +1,29 @@
+
+#custom-name {
+  background-color: #f0f4ff;   
+  color: #333;                 
+  border: 2px solid #4a6cff;
+  padding: 8px;
+  border-radius: 5px;
+}
+
+
+#custom-name:focus {
+  background-color: #e0e7ff;
+  outline: none;
+}
+
+
+.generate {
+  background-color: #4a6cff; 
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+
+.generate:hover {
+  background-color: #2f4bcc;
+}
