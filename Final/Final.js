@@ -16,9 +16,15 @@ let lastMoveTime = Date.now();
 
 let confirmedLock = false;
 let pendingTimeouts = [];
+let hoverWhiteoutReady = true;
 
 message.textContent = "";
 message.style.display = "none";
+
+// make box smaller from JS
+box.style.width = "320px";
+box.style.padding = "22px";
+box.style.fontSize = "14px";
 
 // ----------------------------
 // MOVING BOX
@@ -26,8 +32,8 @@ message.style.display = "none";
 
 let posX = 120;
 let posY = 120;
-let velocityX = 3.4;
-let velocityY = 2.6;
+let velocityX = 3.6;
+let velocityY = 2.8;
 
 function moveBox() {
   posX += velocityX;
@@ -215,7 +221,7 @@ setInterval(() => {
 }, 4000);
 
 // ----------------------------
-// RANDOM WHITEOUT FLASHES
+// WHITEOUT SYSTEM
 // ----------------------------
 
 function whiteoutScreen() {
@@ -239,8 +245,26 @@ function whiteoutScreen() {
   }, duration);
 }
 
-setInterval(() => {
-  if (Math.random() < 0.28) {
+// half the time when mouse hovers over box
+box.addEventListener("mouseenter", function () {
+  if (!hoverWhiteoutReady) {
+    return;
+  }
+
+  hoverWhiteoutReady = false;
+
+  if (Math.random() < 0.5) {
     whiteoutScreen();
   }
-}, 5500);
+
+  setTimeout(() => {
+    hoverWhiteoutReady = true;
+  }, 700);
+});
+
+// random whiteouts still happen sometimes
+setInterval(() => {
+  if (Math.random() < 0.22) {
+    whiteoutScreen();
+  }
+}, 6000);
